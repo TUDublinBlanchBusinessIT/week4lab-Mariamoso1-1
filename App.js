@@ -1,4 +1,4 @@
-import { SafeAreaView, Text, View, TextInput, Button, Alert, StyleSheet } from 'react-native';
+import { Text, View, TextInput, Button, Alert, StyleSheet } from 'react-native';
 import { useState } from 'react';
 
 export default function App() {
@@ -6,6 +6,10 @@ export default function App() {
 
   const [math, setmath] = useState('D');
   const [ob, setOb] = useState('D');
+  const [mobApps, setmobApps] = useState('D');
+  const [fimgt, setfimgt] = useState('D');
+  const [obad, setObad] = useState('D');
+  const [dm, setdm] = useState('D');
 
   var gpa = 0;
   var credits = 5;
@@ -27,22 +31,69 @@ export default function App() {
     mathgpa = gradePoints[{math}];
     alert('gpa is ='+gpa)
   }
+  const styles = StyleSheet.create({
+  container: {
+      flex: 1,
+      justifyContent: 'center',
+      padding: 20,
+
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 15,
+
+  },
+  label: {
+    flex: 4,
+    textAlign: 'right',
+    marginRight: 4,
+
+
+  },
+  textInput: {
+      flex: 1,
+      borderWidth: 1,
+      borderRadius: 3,
+      padding: 5
+
+
+    
+
+  }
+});
   return (
-    <SafeAreaView>
+    <View  >
       <View><Text style={{ flexDirection: "row", fontWeight: "bold", fontSize: 24, textAlign: "center", marginTop: "%10" }}>GPA Calculator</Text></View>
       <View>
         <Text>Maths</Text>
-        <TextInput placeholder="Grade" onChangeText={setmath} />
+        <TextInput style={styles.textInput}   placeholder="Grade" onChangeText={setmath} />
       </View>
       <View >
         <Text>Organisational Behaviour</Text>
-        <TextInput placeholder="Grade" onChangeText={setOb} />
+        <TextInput style={styles.textInput}   placeholder="Grade" onChangeText={setOb} />
       </View>
+      <View>
+        <Text>Mobile Applications</Text>
+        <TextInput style={styles.textInput}   placeholder="Grade" onChangeText={setmobApps} />
+      </View>
+      <View>
+      <Text>Financial Management</Text>
+        <TextInput style={styles.textInput}   placeholder="Grade" onChangeText={setfimgt} />
+      </View>
+
+    <View >
+      <Text>Object Orienetated Design</Text>
+        <TextInput style={styles.textInput}   placeholder="Grade" onChangeText={setObad} />
+      </View>
+      <Text>Digital Marketing</Text>
+        <TextInput style={styles.textInput}   placeholder="Grade" onChangeText={setdm} />
       <View >
-        <Button title="submit" onPress={clickMe} />
+        <Button  title="submit" onPress={clickMe} />
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
+
 
 
